@@ -1,0 +1,58 @@
+package lista5;
+import java.util.Scanner;
+import java.util.*;
+import java.text.NumberFormat;
+public class ex9 {
+    public static void main(String[]args){
+        NumberFormat nf = NumberFormat.getInstance();
+        nf.setMaximumFractionDigits(2);
+        
+        int sexo,contador =0;
+        float idade,
+                altura,
+                mediagrupo=0,// media do grupo idade
+                idademediah=0,// mostra idade media homens
+                alturamediaf=0,// mostra altura media mulheres
+                idadeentre=0, // utilizado para porcentagem
+                somagrupo=0, // soma idade de todos
+                somaalt=0,//soma altura mulheres
+                somaidade=0,// soma idade homens
+                feminino=0,// mostra total de mulheres entrevistadas 
+                masculino=0, /* mostra total de homens entrevistados*/porcentagem=0;
+        Scanner ler = new Scanner(System.in);
+        
+        while(contador <3){
+            System.out.println("Escolha o sexo do habitante\n0 - Feminino\n1 - Masculino");
+            sexo = ler.nextInt();
+            System.out.print("Digite a idade do habitante: ");
+            idade = ler.nextFloat();
+            System.out.print("Digite a altura do habitante: ");
+            altura = ler.nextFloat();
+            if(sexo == 0){
+                somaalt = somaalt + altura;
+                feminino = feminino +1;
+            }else if(sexo == 1){
+                somaidade = somaidade + idade;
+                masculino = masculino + 1;
+            }else{
+                System.out.print("Voce nao digitou um sexo valido!");
+            } if(idade >=18 && idade <=35){
+                idadeentre = idadeentre + 1; // soma quantas pessoas tem idade entre 18 e 35 
+            }          
+           somagrupo= somagrupo +idade; //soma das idades nao importa o sexo
+            contador = contador + 1; // contador para saber quando o while tem q parar
+        }// OPERACOES
+        alturamediaf = somaalt/feminino; // media altura mulheres
+        idademediah = somaidade/masculino; // media idade homens
+        porcentagem = (idadeentre*100)/3;    // porcentagem entre 18 e 35
+        mediagrupo = somagrupo/3; // tira a media das idade de todos do grupo e divite pelo valor dos entrevistados
+        String porcent = nf.format(porcentagem);
+        String mediaidadegrupo = nf.format(mediagrupo);
+        String mediaidhomem = nf.format(idademediah);
+        String altmediafem = nf.format(alturamediaf);
+        System.out.println("A media da altura entre as mulheres e de: "+altmediafem);
+        System.out.println("A media de idade entre os homens e de: "+mediaidhomem+" anos");
+        System.out.println("A porcentagem de pessoas entre 18 e 35 anos dentre os entrevistados e de: "+porcent+"%");
+        System.out.printf("A media de idade do grupo entrevistado e de: "+mediaidadegrupo+" anos");
+    }
+}
