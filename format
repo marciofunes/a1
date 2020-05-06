@@ -1,6 +1,6 @@
 package lista5;
 import java.util.Scanner;
-import java.util.*;
+//import java.util.*;
 import java.text.NumberFormat;
 public class ex9 {
     public static void main(String[]args){
@@ -21,7 +21,7 @@ public class ex9 {
                 masculino=0, /* mostra total de homens entrevistados*/porcentagem=0;
         Scanner ler = new Scanner(System.in);
         
-        while(contador <3){
+        while(contador <1000){
             System.out.println("Escolha o sexo do habitante\n0 - Feminino\n1 - Masculino");
             sexo = ler.nextInt();
             System.out.print("Digite a idade do habitante: ");
@@ -44,8 +44,8 @@ public class ex9 {
         }// OPERACOES
         alturamediaf = somaalt/feminino; // media altura mulheres
         idademediah = somaidade/masculino; // media idade homens
-        porcentagem = (idadeentre*100)/3;    // porcentagem entre 18 e 35
-        mediagrupo = somagrupo/3; // tira a media das idade de todos do grupo e divite pelo valor dos entrevistados
+        porcentagem = (idadeentre*100)/1000;    // porcentagem entre 18 e 35
+        mediagrupo = somagrupo/1000; // tira a media das idade de todos do grupo e divite pelo valor dos entrevistados
         String porcent = nf.format(porcentagem);
         String mediaidadegrupo = nf.format(mediagrupo);
         String mediaidhomem = nf.format(idademediah);
